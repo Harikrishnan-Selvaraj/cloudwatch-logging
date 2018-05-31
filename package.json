@@ -1,0 +1,30 @@
+{
+  "name": "cloudwatch-logging",
+  "version": "0.0.1",
+  "description": "Simple Async Cloud watch logging",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harikrishnan-Selvaraj/cloudwatch-logging.git"
+  },
+  "keywords": [
+    "Cloudwatch",
+    "node.js",
+    "aws",
+    "logger",
+    "winston"
+  ],
+  "author": "Harikrishnan Selvaraj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Harikrishnan-Selvaraj/cloudwatch-logging/issues"
+  },
+  "homepage": "https://github.com/Harikrishnan-Selvaraj/cloudwatch-logging#readme",
+  "dependencies": {
+    "aws4": "^1.7.0",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7",
+    "winston": "^2.4.2"
+  }
+}
