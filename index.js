@@ -1,5 +1,5 @@
 /** MIT License
- * 
+ *
  * Copyright (c) [2018] [ Harikrishnan Selvaraj ]
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,7 +40,7 @@ const levels = {
 const logger = {}
 let isLocal = true
 let level = levels[ 2 ]
-let uploadRate = 10000
+let uploadRate = 1000
 let retryCount = 5
 let _sequenceTokens = new Map()
 let logBuffer = []
@@ -168,7 +168,6 @@ const writeLogsToCloudWatch = (logMessage, logGroupName, logStreamName,
       const token = results.data.nextSequenceToken
 
       _sequenceTokens.set(tokenKey, token)
-  logBuffer = []
 
   return 'Success'
 }).catch((err) => {
@@ -233,10 +232,13 @@ const defaultFormat = ({ logType, logMessage }) =>
  */
 const triggerTimer = (logGroupName, logStreamName, region, keys, count) => {
   setInterval(() => {
-    if (logBuffer.length !== 0)
-  writeLogsToCloudWatch(logBuffer, logGroupName, logStreamName, region,
-    keys, count)
-}, uploadRate > 0 ? uploadRate : 0)
+    if (logBuffer.length !== 0) {
+      const logMessage = logBuffer
+        logBuffer = []
+        writeLogsToCloudWatch(logMessage, logGroupName, logStreamName, region,
+            keys, count)
+    }
+}, uploadRate > 1000 ? uploadRate : 1000)
 }
 
 /**

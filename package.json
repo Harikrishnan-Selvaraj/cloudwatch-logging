@@ -1,6 +1,6 @@
 {
   "name": "cloudwatch-logging",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple Async Cloud watch logging",
   "main": "index.js",
   "repository": {
@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/Harikrishnan-Selvaraj/cloudwatch-logging#readme",
   "dependencies": {
-    "aws4": "^1.7.0",
+    "aws4": "^1.8.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.10",
     "path": "^0.12.7",
-    "winston": "^2.4.2"
+    "winston": "^3.0.0"
   }
 }
